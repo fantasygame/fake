@@ -19,6 +19,8 @@ gem 'figaro'
 gem 'haml-rails'
 gem 'pundit'
 gem 'simple_form'
+gem 'carrierwave'
+gem 'acts_as_votable', '~> 0.10.0'
 group :development do
   gem 'better_errors'
   gem 'guard-bundler'
@@ -50,5 +52,3 @@ group :test do
   gem 'launchy'
   gem 'selenium-webdriver'
 end
-gem 'carrierwave'
-gem 'acts_as_votable', '~> 0.10.0'
