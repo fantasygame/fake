@@ -12,6 +12,8 @@
     - @posts.each do |post|
       %tr
         %td= post.user
+        %td= image_tag post.image.url
+
         %td
           .btn-group
             = link_to 'like', upvote_post_path(post), class: 'btn btn-success'
