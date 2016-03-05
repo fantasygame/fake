@@ -51,3 +51,4 @@ group :test do
   gem 'selenium-webdriver'
 end
 gem 'carrierwave'
+gem 'acts_as_votable', '~> 0.10.0'
