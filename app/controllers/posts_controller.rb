@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  before_action :set_post, only: [:show, :edit, :update, :destroy,:upvote]
+  before_action :set_post, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
 
   def upvote
     if current_user.nil?
@@ -7,6 +7,15 @@ class PostsController < ApplicationController
     else
       @post.liked_by current_user
       redirect_to :back, notice: "Congratulations"
+    end
+  end
+
+  def downvote
+    if current_user.nil?
+      redirect_to :back, alert: "you are doing it completly wrong"
+    else
+      @post.disliked_by current_user
+      redirect_to :back, notice: "Congratulations^2"
     end
   end
 
