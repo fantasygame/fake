@@ -16,8 +16,13 @@
 
         %td
           .btn-group
-            = link_to 'like', upvote_post_path(post), class: 'btn btn-success'
-            = link_to 'dislike', downvote_post_path(post), class: 'btn btn-danger'
+            - if current_user.voted_as_when_voted_for(post)
+              = link_to 'dislike', downvote_post_path(post), class: 'btn btn-danger'
+            - elsif current_user.voted_as_when_voted_for(post) == false
+              = link_to 'like', upvote_post_path(post), class: 'btn btn-success'
+            - else
+              = link_to 'like', upvote_post_path(post), class: 'btn btn-success'
+              = link_to 'dislike', downvote_post_path(post), class: 'btn btn-danger'
 %br
 
 = link_to 'New Post', new_post_path
